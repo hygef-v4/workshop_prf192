@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     for (int code = 0; code <= 255; code++) 
     {
         printf("%c : %d, %o, %X\n", code, code, code, code);

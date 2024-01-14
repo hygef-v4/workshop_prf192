@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int main() {
+int main() 
+{
     int nVowels = 0, nConsonants = 0, nOthers = 0;
     char ch;
 

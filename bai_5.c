@@ -7,12 +7,15 @@ int main() {
 
     printf("Enter a string of characters:\n");
 
-    do {
+    do 
+    {
         ch = getchar(); 
         ch = toupper(ch); 
 
-        if (ch >= 'A' && ch <= 'Z') {
-            switch (ch) {
+        if (ch >= 'A' && ch <= 'Z')
+        {
+            switch (ch) 
+            {
                 case 'A':
                 case 'E':
                 case 'I':
@@ -23,7 +26,9 @@ int main() {
                 default:
                     nConsonants++;
             }
-        } else {
+        } 
+        else 
+        {
             nOthers++;
         }
     } while (ch != '\n');

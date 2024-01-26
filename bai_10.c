@@ -8,7 +8,7 @@ int main(void)
     int num;
     do
     {
-        printf("Enter a positive number: \n");
+        printf("Enter a non-negative integer: \n");
         scanf("%d", &num); 
 
     } while (num < 0);

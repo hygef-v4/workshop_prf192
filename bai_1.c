@@ -16,7 +16,7 @@ int main(void)
 {
     int n;
     int choice;
-
+    //menu
     do
     {
         printf("1- Process primes\n");
@@ -27,14 +27,14 @@ int main(void)
 
         switch (choice)
         {
-        case 1:
+        case 1: //check prime number
             do
             {
                 printf("Input n: ");
                 scanf("%d", &n); 
             } while (n < 0);
             
-            if (is_prime(n))
+            if (is_prime(n))  
             {
                 printf("%d is a prime number\n", n);
             }
@@ -44,7 +44,7 @@ int main(void)
             }
             break;
 
-        case 2:
+        case 2: // print maximum digit
             do
             {
                 printf("Input n: ");

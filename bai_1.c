@@ -1,9 +1,7 @@
-//Write a program that will accept a number (>=1 000 000 000)
-//then show whether the number is an ISBN or not.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 bool checkISBN(int n);
 
@@ -14,46 +12,57 @@ int main(void)
     do
     {
         printf("ISBN (0 to quit): ");
-        scanf("%d", &n);
-        if (n == 0)         // if input = 0 --> terminate program
+        if (scanf("%d", &n) != 1) 
+        { 
+            // Check if input is not a valid integer
+            printf("Invalid input. Please enter a valid number.\n");
+            while (getchar() != '\n');      // clear input buffer
+            continue; // Restart the loop
+        }
+        if (n == 0) // if input = 0 --> terminate program
         {
             printf("Have a Nice Day!\n");
             break;
         }
-            
+
+        // Check if the number is negative
+        if (n < 0) {
+            printf("ISBN cannot be negative. Please enter a positive number.\n");
+            continue; // Restart the loop
+        }
+
         // 0003194876
-        if(checkISBN(n))   
+        if (checkISBN(n))
             printf("This is a valid ISBN.\n");
-        else            
+        else
             printf("This is not a valid ISBN.\n");
     } while (true);
-    
+
     return 0;
 }
 
-bool checkISBN(int n) 
+bool checkISBN(int n)
 {
-	int N[10];                      // array contain digit n 
+    int N[10]; // array contain digit n 
 
-	int s = 0;                      // sum of value 
-	int i, j;
-    
-    for (i = 9; i >= 0; i--) 
+    int s = 0; // sum of value
+    int i, j;
+
+    // Convert the number to its digits
+    for (i = 9; i >= 0; i--)
     {
         N[i] = n % 10;
         n /= 10;
     }
 
-    // Calculate the sum 
-    for (i = 0; i < 9; i++) 		//find digit
-    {
-        s += N[i] * (10 -i);
+    // Calculate sum 
+    for (i = 0; i < 10; i++) {
+        s += N[i] * (10 - i);
     }
-    
-    s += N[9];                      // + 10th element 
+
     // check last condition
-    if ((s % 11) == 0)              
-		return true;
-	else
-		return false;
+    if ((s % 11) == 0)
+        return true;
+    else
+        return false;
 }

@@ -45,7 +45,7 @@ bool checkISBN(int n)
     }
 
     // Calculate the sum 
-    for (i = 0; i < 9; i++) 
+    for (i = 0; i < 9; i++) 		//find digit
     {
         s += N[i] * (10 -i);
     }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 #define MAX_DRINKS 100
 #define MAX_NAME_LENGTH 21 // Including null terminator
@@ -140,6 +141,7 @@ void printByVolumeRange(const struct SoftDrink drinks[], int numDrinks, int minV
             printf("Make: %s\n", drinks[i].make);
             printf("Price: %d VND\n", drinks[i].price);
             printf("Duration: %d days\n", drinks[i].duration);
+            printf("\n");
             found = 1;
         }
     }
@@ -182,5 +184,6 @@ void printAscendingOrder(const struct SoftDrink drinks[], int numDrinks) {
         printf("Volume: %d ml\n", sortedDrinks[i].volume);
         printf("Price: %d VND\n", sortedDrinks[i].price);
         printf("Duration: %d days\n", sortedDrinks[i].duration);
+        printf("\n");
     }
 }

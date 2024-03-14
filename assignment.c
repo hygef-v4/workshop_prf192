@@ -33,10 +33,12 @@ int isFileEmpty(FILE *file);
 
 int main() {
     clear_console();
-    while(!login())
-    {
+    //login menu
+    printf("\t\t\t\t LOGIN MENU \t\t\t\t\n");
+    do {                      
         login();
-    }
+    } while(!login());
+    clear_console();
     // menu
     while(1) {
         clear_console();

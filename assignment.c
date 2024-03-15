@@ -36,9 +36,12 @@ int main() {
     //login menu
     printf("\t\t\t\t LOGIN MENU \t\t\t\t\n");
     do {                      
-        login();
-    } while(!login());
+    if(login()) {
+        break;
+    }
+    } while(1);
     clear_console();
+
     // menu
     while(1) {
         clear_console();
@@ -291,9 +294,10 @@ int check_username_exists(const char *username) {
 }
 
 int isFileEmpty(FILE *file) {
+    // move pointer to the end of file 
     fseek(file, 0, SEEK_END);
     //if file is empty
-    if (ftell(file) == 0) {
+    if (ftell(file) == 0) {   //tell the current postion of pointer 
         return 1;
     } else {
         return 0;
